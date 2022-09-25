@@ -1,0 +1,20 @@
+{% extends "accounts/base.html" %}
+{% block title %}
+<title>邮件退出</title>
+<style type="text/css">
+    .login-center {
+        height: 100vh;
+    }
+</style>
+{% endblock %}
+
+{% block content%}
+
+<h2 style="text-align: center;">您已经退出openstack系统</h2><br />
+<div class="border-top pt-3" style="text-align: right;">
+    <small class="text-muted">
+        重新登录? <a class="ml-2" href="{% url 'login' %}">登录</a>
+    </small>
+</div>
+
+{% endblock %}

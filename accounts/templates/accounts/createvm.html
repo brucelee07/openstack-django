@@ -1,0 +1,45 @@
+{% extends "accounts/admin_layout.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>用户管理</title>
+{% endblock %}
+{% block content%}
+
+<br />
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">创建虚拟机</legend>
+        {{ form|crispy }}
+        <br />
+        <p>镜像:</p>
+        <select name="image" id="pet-select">
+            {% for image in images %}
+            <option value="{{ image.id }}">{{ image.name }}</option>
+            {% endfor %}
+        </select>
+        <br />
+        <br />
+        <p>Flavors:</p>
+        <select name="flavor" id="pet-select">
+            {% for flavor in flavors %}
+            <option value="{{ flavor.id }}">{{ flavor.name }}</option>
+            {% endfor %}
+        </select>
+        <br />
+        <br />
+        <p>用户:</p>
+        <select name="user" id="pet-select">
+            {% for nuser in users %}
+            {% if nuser.username != user.username %}
+            <option value="{{nuser.id}}">{{ nuser.username }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </fieldset>
+    <div class="form-group" style="text-align: center;">
+        <button class="btn btn-outline-info" style="width: 200px;" type="submit">创建</button>
+    </div>
+</form>
+
+{% endblock %}

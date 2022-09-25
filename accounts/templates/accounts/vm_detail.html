@@ -1,0 +1,28 @@
+{% extends "accounts/admin_layout.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>用户管理</title>
+{% endblock %}
+{% block content%}
+
+<br />
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">更换虚拟机用户</legend>
+        <p name="vmid" value="{{ vm.id }}">虚拟机: {{ vm.vmid }}</p>
+
+        <p>当前用户: {{ vm.owner.username }}</p>
+        <p>更换用户用户:</p>
+        <select name="user" id="pet-select">
+            {% for nuser in users %}
+            <option value="{{nuser.id}}">{{ nuser.username }}</option>
+            {% endfor %}
+        </select>
+    </fieldset>
+    <div class="form-group" style="text-align: center;">
+        <button class="btn btn-outline-info" style="width: 200px;" type="submit">更换用户名</button>
+    </div>
+</form>
+
+{% endblock %}

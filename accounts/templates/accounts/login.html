@@ -1,0 +1,28 @@
+{% extends "accounts/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>Openstack登录</title>
+
+{% endblock %}
+
+{% block content%}
+
+<h2 style="text-align: center;">欢迎使用Openstack系统</h2><br />
+
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">请登录使用Openstack系统:</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group" style="text-align: center;">
+        <button class="btn btn-outline-info" style="width: 200px;" type="submit">登录</button>
+    </div>
+    <div class="border-top pt-3" style="text-align: right;">
+        <small class="text-muted">
+            需要注册帐号? <a class="ml-2" href="{% url 'register' %}">现在注册</a>
+        </small>
+    </div>
+</form>
+
+{% endblock %}

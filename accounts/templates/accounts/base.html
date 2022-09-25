@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    {% block title %}
+    {% endblock %}
+    <style type="text/css">
+        .login-center {
+            height: 100vh;
+        }
+    </style>
+    <link href="{% static 'accounts/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="row login-center">
+        <div class="col-xl-4 m-auto">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <script src="{% static 'accounts/js/jquery.min.js' %}"></script>
+    <script src="{% static 'accounts/js/bootstrap.min.js' %}"></script>
+    {% block footer %}
+    {% endblock %}
+</body>
+
+</html>

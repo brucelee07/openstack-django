@@ -1,0 +1,35 @@
+{% extends "accounts/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>用户注册</title>
+<style type="text/css">
+    .login-center {
+        height: 100vh;
+    }
+
+    ul {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block content%}
+
+
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">用户注册:</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group" style="text-align: center;">
+        <button class="btn btn-outline-info" style="width:200px" type="submit">注册</button>
+    </div>
+    <div class="border-top pt-3" style="text-align: right;">
+        <small class="text-muted">
+            已经拥有帐号? <a class="ml-2" href="{% url 'login' %}">现在登录</a>
+        </small>
+    </div>
+</form>
+
+{% endblock %}

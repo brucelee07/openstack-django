@@ -1,0 +1,25 @@
+{
+    "server": {
+        "name": "new_server",
+        "imageRef": "e14d4d1e-bf83-4c7e-8083-2bc0f0a9928e",
+        "flavorRef": "172f99c4-4498-49da-a779-382db9ced13b",
+        "networks": [
+            {
+                "uuid": "6966aae2-2784-4c9a-a26e-a657bcded49d"
+            }
+        ]
+    }
+}
+
+{
+    "server": {
+        "name": "new_server",
+        "imageRef": "e14d4d1e-bf83-4c7e-8083-2bc0f0a9928e",
+        "flavorRef": "eaa52d71-19ef-4446-8cf9-6266129e7b6d",
+        "networks": [
+            {
+                "uuid": "6966aae2-2784-4c9a-a26e-a657bcded49d"
+            }
+        ]
+    }
+}
